@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="EventViewerScraper.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="OutputFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\razorrifh\Documents\Code\cs-EventViewer\EventViewerScraper\bin\Debug\input.csv</Value>
+    </Setting>
+    <Setting Name="EventViewerSource" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ESENT</Value>
+    </Setting>
+    <Setting Name="EventLogName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Application</Value>
+    </Setting>
+    <Setting Name="NumberOfMinutesOfLogToRead" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">999</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
