@@ -19,7 +19,7 @@ namespace EventViewerScraper
 
         static void DisplayWelcomeMessage()
         {
-            Console.WriteLine("EventViewerScraper 1.0");
+            Console.WriteLine("EventViewerScraper v1.0");
             Console.WriteLine("by Ramon Ecung");
         }
 
