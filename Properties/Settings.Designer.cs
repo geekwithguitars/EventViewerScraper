@@ -83,5 +83,17 @@ namespace EventViewerScraper.Properties {
                 this["delimiter"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool PauseAfterCompletion {
+            get {
+                return ((bool)(this["PauseAfterCompletion"]));
+            }
+            set {
+                this["PauseAfterCompletion"] = value;
+            }
+        }
     }
 }

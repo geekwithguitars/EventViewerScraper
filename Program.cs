@@ -12,13 +12,18 @@ namespace EventViewerScraper
         static void Main(string[] args)
         {
             WriteFile(GetEventViewerLogs(), Properties.Settings.Default.OutputFilePath);
-            //Console.ReadKey();
+
+            if (Properties.Settings.Default.PauseAfterCompletion)
+            {
+                DisplayOutput("Press any key to terminate execution...");
+                Console.ReadKey();
+            }
         }
 
         static void DisplayWelcomeMessage()
         {
-            Console.WriteLine("EventViewerScraper v1.0");
-            Console.WriteLine("by Ramon Ecung");
+            DisplayOutput("EventViewerScraper v1.0");
+            DisplayOutput("by Ramon Ecung");
         }
 
         static string GetEventViewerLogs()
@@ -30,12 +35,14 @@ namespace EventViewerScraper
 
             foreach (EventLogEntry log in eventLog.Entries)
             {
+                //DisplayOutput("Now processing: " + log.Message);
+
                 if (log.Source == Properties.Settings.Default.EventViewerSource && FilterMessageByTime(log.TimeWritten))
                 {
                     //EncodeString(log.Message);
-                    //Console.WriteLine(log.Message);
+                    //DisplayOutput(log.Message);
                     string line = log.TimeWritten.ToString("HH:mm")  + Properties.Settings.Default.delimiter + log.TimeWritten.ToString("D").Split(',')[0] + Properties.Settings.Default.delimiter + FormatMessage(log.Message) + Properties.Settings.Default.delimiter + isLogValid(log.Message);
-                    Console.WriteLine(line);
+                    DisplayOutput(line);
                     sb.AppendLine(line);
                 }
             }
@@ -53,15 +60,19 @@ namespace EventViewerScraper
         {
             if(TimeWritten < DateTime.Now.AddMinutes(Properties.Settings.Default.NumberOfMinutesOfLogToRead * -1))
             {
-                //Console.WriteLine(TimeWritten.ToString() + " < " + DateTime.Now.AddMinutes(Properties.Settings.Default.NumberOfMinutesOfLogToRead * -1).ToString());
+                //DisplayOutput(TimeWritten.ToString() + " < " + DateTime.Now.AddMinutes(Properties.Settings.Default.NumberOfMinutesOfLogToRead * -1).ToString());
                 return false;
             }
             else
             {
-                //Console.WriteLine(TimeWritten.ToString() + " > " + DateTime.Now.AddMinutes(Properties.Settings.Default.NumberOfMinutesOfLogToRead * -1).ToString());
+                //DisplayOutput(TimeWritten.ToString() + " > " + DateTime.Now.AddMinutes(Properties.Settings.Default.NumberOfMinutesOfLogToRead * -1).ToString());
                 return true;
             }
 
+        }
+        static void DisplayOutput(string message)
+        {
+            Console.WriteLine(message);
         }
 
         static string FormatMessage (string message)
@@ -76,16 +87,16 @@ namespace EventViewerScraper
 
         static void WriteFile (string textData , string path)
         {
-            Console.WriteLine("Attempting to write output file: " + path);
+            DisplayOutput("Attempting to write output file: " + path);
             try
             {
                 System.IO.File.WriteAllText(path, textData);
             }
             catch(Exception e)
             {
-                Console.WriteLine("ERROR: " + e.Message);
+                DisplayOutput("ERROR: " + e.Message);
             }
-            Console.WriteLine("Done writing file.");
+            DisplayOutput("Done writing file.");
         }
     }
 }
