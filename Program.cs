@@ -11,7 +11,14 @@ namespace EventViewerScraper
     {
         static void Main(string[] args)
         {
-            WriteFile(GetEventViewerLogs(), Properties.Settings.Default.OutputFilePath);
+            try
+            {
+                WriteFile(GetEventViewerLogs(), Properties.Settings.Default.OutputFilePath);
+            }
+            catch (Exception e)
+            {
+                DisplayOutput("FATAL ERROR: " + e.Message);
+            }
 
             if (Properties.Settings.Default.PauseAfterCompletion)
             {
@@ -41,11 +48,18 @@ namespace EventViewerScraper
 
                 if (log.Source == Properties.Settings.Default.EventViewerSource && FilterMessageByTime(log.TimeWritten))
                 {
-                    //EncodeString(log.Message);
-                    DisplayOutput("Now processing line: " + log.Message);
-                    string line = log.TimeWritten.ToString("HH:mm")  + Properties.Settings.Default.delimiter + log.TimeWritten.ToString("D").Split(',')[0] + Properties.Settings.Default.delimiter + FormatMessage(log.Message) + Properties.Settings.Default.delimiter + isLogValid(log.Message);
-                    DisplayOutput(line);
-                    sb.AppendLine(line);
+                    try
+                    {
+                        //EncodeString(log.Message);
+                        DisplayOutput("Now processing line: " + log.Message);
+                        string line = log.TimeWritten.ToString("HH:mm") + Properties.Settings.Default.delimiter + log.TimeWritten.ToString("D").Split(',')[0] + Properties.Settings.Default.delimiter + FormatMessage(log.Message) + Properties.Settings.Default.delimiter + isLogValid(log.Message);
+                        DisplayOutput(line);
+                        sb.AppendLine(line);
+                    }
+                    catch(Exception e)
+                    {
+                        DisplayOutput("ERROR: " + e.Message);
+                    }
                 }
             }
 
@@ -92,16 +106,28 @@ namespace EventViewerScraper
         static void WriteFile (string textData , string path)
         {
             DisplayOutput("Attempting to write output file: " + path);
+            bool writeStatus;
 
             try
             {
                 System.IO.File.WriteAllText(path, textData);
+                writeStatus = true;
             }
             catch(Exception e)
             {
                 DisplayOutput("ERROR: " + e.Message);
+                writeStatus = false;
             }
-            DisplayOutput("Done writing file.");
+
+            if(writeStatus)
+            {
+                DisplayOutput("Done writing file.");
+            }
+            else
+            {
+                DisplayOutput("Writing the file was unsuccessful!");
+            }
+            
         }
     }
 }
