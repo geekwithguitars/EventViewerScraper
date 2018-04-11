@@ -25,8 +25,7 @@ namespace EventViewerScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\razorrifh\\Documents\\Code\\cs-EventViewer\\EventViewerScraper\\bin\\Debug\\inp" +
-            "ut.csv")]
+        [global::System.Configuration.DefaultSettingValueAttribute("input.csv")]
         public string OutputFilePath {
             get {
                 return ((string)(this["OutputFilePath"]));
