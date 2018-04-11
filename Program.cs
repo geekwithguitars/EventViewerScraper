@@ -11,6 +11,8 @@ namespace EventViewerScraper
     {
         static void Main(string[] args)
         {
+            DisplayWelcomeMessage();
+
             try
             {
                 WriteFile(GetEventViewerLogs(), Properties.Settings.Default.OutputFilePath);
@@ -88,6 +90,7 @@ namespace EventViewerScraper
             }
 
         }
+
         static void DisplayOutput(string message)
         {
             Console.WriteLine(message);
