@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventViewerScraper", "EventViewerScraper.csproj", "{3BDCBD97-9639-406D-872F-3486FD62695A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventViewerScraper.Tests", "..\EventViewerScraper.Tests\EventViewerScraper.Tests.csproj", "{C8ABA801-52DB-45E1-B482-EC2863C52B49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3BDCBD97-9639-406D-872F-3486FD62695A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BDCBD97-9639-406D-872F-3486FD62695A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BDCBD97-9639-406D-872F-3486FD62695A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8ABA801-52DB-45E1-B482-EC2863C52B49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8ABA801-52DB-45E1-B482-EC2863C52B49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8ABA801-52DB-45E1-B482-EC2863C52B49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8ABA801-52DB-45E1-B482-EC2863C52B49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
