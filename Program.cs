@@ -9,8 +9,6 @@ namespace EventViewerScraper
 {
     class Program
     {
-        const string delimiter = ",";
-
         static void Main(string[] args)
         {
             WriteFile(GetEventViewerLogs(), Properties.Settings.Default.OutputFilePath);
@@ -36,7 +34,7 @@ namespace EventViewerScraper
                 {
                     //EncodeString(log.Message);
                     //Console.WriteLine(log.Message);
-                    string line = log.TimeWritten.ToString("HH:mm") + delimiter + log.TimeWritten.ToString("D").Split(',')[0] + delimiter + FormatMessage(log.Message) + delimiter + isLogValid(log.Message);
+                    string line = log.TimeWritten.ToString("HH:mm")  + Properties.Settings.Default.delimiter + log.TimeWritten.ToString("D").Split(',')[0] + Properties.Settings.Default.delimiter + FormatMessage(log.Message) + Properties.Settings.Default.delimiter + isLogValid(log.Message);
                     Console.WriteLine(line);
                     sb.AppendLine(line);
                 }
