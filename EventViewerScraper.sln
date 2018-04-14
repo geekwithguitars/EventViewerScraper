@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventViewerScraper", "EventViewerScraper.csproj", "{3BDCBD97-9639-406D-872F-3486FD62695A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventViewerScraper", ".\EventViewerScraper\EventViewerScraper.csproj", "{3BDCBD97-9639-406D-872F-3486FD62695A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventViewerScraper.Tests", "..\EventViewerScraper.Tests\EventViewerScraper.Tests.csproj", "{C8ABA801-52DB-45E1-B482-EC2863C52B49}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventViewerScraper.Tests", ".\EventViewerScraper.Tests\EventViewerScraper.Tests.csproj", "{C8ABA801-52DB-45E1-B482-EC2863C52B49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
