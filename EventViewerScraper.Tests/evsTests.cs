@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using EventViewerScraper;
 
-namespace EventViewerScraper.Tests : EventViewerScraper.EventViewerScraper123
+namespace EventViewerScraper.Tests
 {
     public class evsTests
     {
         [TestFixture]
         public class test1
         {
-            EventViewerScraper123 asdf = new EventViewerScraper();
+            //EventViewerScraper123 asdf = new EventViewerScraper();
 
             [Test]
             public void Test12()
